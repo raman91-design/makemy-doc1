@@ -2,7 +2,7 @@
  $('#home').owlCarousel({
   loop: true,
   margin: 1,
-dots: false,
+dots: true,
   navText: [
     "<i class='fa fa-caret-left'></i>",
     "<i class='fa fa-caret-right'></i>"
@@ -17,15 +17,14 @@ dots: false,
       items: 1
     },
     1000: {
-      items: 1
+      items: 4
     }
   }
 })
 });
 
-
-$(document).ready(function(){
- $('#increase-section').owlCarousel({
+ $(document).ready(function(){
+ $('#testimonial').owlCarousel({
   loop: true,
   margin: 1,
 dots: true,
@@ -43,36 +42,12 @@ dots: true,
       items: 1
     },
     1000: {
-      items: 1
+      items: 3
     }
   }
 })
 });
 
-   $(document).ready(function(){
- $('#integrate-social-icons').owlCarousel({
-  loop: true,
-  margin: 1,
-dots: true,
-  navText: [
-    "<i class='fa fa-caret-left'></i>",
-    "<i class='fa fa-caret-right'></i>"
-  ],
-  autoplay: true,
-  autoplayHoverPause: true,
-  responsive: {
-    0: {
-      items: 1
-    },
-    600: {
-      items: 1
-    },
-    1000: {
-      items: 1
-    }
-  }
-})
-});
 
  $(document).ready(function() {
 $(window).scroll(function() {

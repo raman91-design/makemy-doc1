@@ -147,27 +147,69 @@ return $count;
 }
 
 
-add_shortcode("carousel_box", "carousel-box");
-function carouselbox() 
-{  
-
+add_shortcode("carouselbox", "carousel_box");
+function carousel_box() 
+{ 
+ 
+?>
+<div class="carousel-wrap">
+    <div class="owl-carousel" id="home">
+    <?php
 if( have_rows('carousel-box') ): 
 		 	while( have_rows('carousel-box') ): the_row(); 
-	 		$boximage = get_sub_field('box-image'); 
-  			$boxtext =  get_sub_field('box-text'); 
-  
-     ?>
+           $boximage = get_sub_field('box-image'); 
+        $boxtext =  get_sub_field('box-text'); 
+?>
 			<div class="item">
-				<div class="slider-bg">
-					<div class="col-md-4 col-sm-4 col-xs-12">
-            <div>
-              <img src="<?php echo $boximage;?>" class="img-responsive">
+				      <img src="<?php echo $boximage;?>" class="img-responsive freeadvice-box-img">
+					<div class="freeadvice-box">
+        
               <p><?php echo $boxtext;?></p>
             </div>
-					</div>
-				</div>
+					
 			</div>
 			<?php endwhile; 
-wp_reset_postdata();
- endif; 
-}
+        endif; 
+?>
+        </div>
+        </div>
+<?php wp_reset_postdata(); 
+  }
+
+  add_shortcode("testimonialbox", "testimonial_box");
+function testimonial_box() 
+{ 
+ 
+?>
+<div class="carousel-wrap">
+    <div class="owl-carousel" id="testimonial">
+    <?php
+if( have_rows('testimonial-box') ): 
+      while( have_rows('testimonial-box') ): the_row(); 
+           $testimonialimg = get_sub_field('testimonial-img'); 
+        $clientname =  get_sub_field('client-name'); 
+        $clientreview =  get_sub_field('client-review'); 
+?>
+      <div class="item">
+        <div class="testimonial-img">
+           <img src="<?php echo $testimonialimg;?>" class="img-responsive">
+        </div>
+        <div class="testimonial-box">
+          <h4><?php echo $clientname;?></h4>
+              <span class="star-icon"><span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span></span>
+              
+              <p><?php echo $clientreview;?></p>
+            </div>
+          
+      </div>
+      <?php endwhile; 
+        endif; 
+?>
+        </div>
+        </div>
+<?php wp_reset_postdata(); 
+  }
